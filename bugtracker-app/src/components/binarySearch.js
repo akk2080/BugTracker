@@ -4,9 +4,28 @@ function binarySearch(logs, filterOptions){
     console.log(logs);
     console.log(filterOptions);
 
+    if(filterOptions.timestamp != ''){
+        logs.sort((a, b) => {
+            return a.timestamp - b.timestamp;
+        });
+
+        let index = findByTimeStamp(logs, filterOptions.timestamp);
+        if(index != -1){
+            filteredLogs.push(logs[index]);
+        }
+
+        return filteredLogs;
+        
+    }
+
+    logs.sort((a, b) => {
+        return a.timestamp - b.timestamp;
+    })
+
+
     filteredLogs = logs.filter((l) => {
         let fbyid = true;
-        let fbytime = true;
+       
         let fbysev = true;
 
         if(filterOptions.devId != ''){
@@ -17,31 +36,34 @@ function binarySearch(logs, filterOptions){
             fbysev = (l.severity == filterOptions.severity);
         }
 
-        if(filterOptions.timestamp != ''){
-            fbytime = (l.timestamp == filterOptions.timestamp);
-        }
+       
 
-        return fbyid && fbytime && fbysev;
+        return fbyid && fbysev;
         
     })
 
     return filteredLogs
-}  
+} 
 
-// function findFirst(){
+function findByTimeStamp(logs, time){
+    let l = 0;
+    let h = logs.length-1;
 
-// }
+    while(l <= h){
+        let m = l + Math.floor((h-l)/2);
 
-// function findLast(){
+        if(logs[m].timestamp == time){
+            return m;
+        }
 
-// }
+        if(logs[m].timestamp > time){
+            h = m-1;
+        }else
+            l = m+1;
+    }
 
-// function filterByDevId(logs){
-    
-// }
+    return -1;
+}
 
-// function severityPriority(sev){
-//     if(sev == 'low')-++
-//         return 
-// }
+
 export default binarySearch
