@@ -1,0 +1,58 @@
+div#root{
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.nav{
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid black;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  
+}
+
+.nav a{
+  text-decoration: none;
+}
+
+.table{
+  margin: 20px auto;
+  border: 1px solid black;
+  text-align: center;
+  border-collapse: collapse;
+  
+
+}
+
+.table th, td{
+  border: 1px solid black;
+  padding: 5px;
+  
+}
+
+.myForm{
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+
+
+.myTable{
+  max-width: 80%;
+  margin: 0px auto;
+}
+
+.uploadDiv{
+  display: flex;
+  gap: 10px;
+  margin: 0px auto;
+  justify-content: center;
+}
